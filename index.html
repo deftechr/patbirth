@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>A little surprise ✨</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+
+  <main id="app">
+    <section class="scene active unlock-scene" id="scene-0">
+      <div class="sparkles"></div>
+      <div class="unlock-card cardish">
+        <div class="unlock-badge">♡ a tiny birthday gate ♡</div>
+        <div class="lock-icon">🔐</div>
+        <h1>Unlock the surprise</h1>
+        <p class="subcopy unlock-copy">Enter the secret code to open something made with lots of love and a lottt of photos.</p>
+        <div class="code-boxes" id="codeBoxes">
+          <input class="code-input" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Digit 1">
+          <input class="code-input" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Digit 2">
+          <input class="code-input" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Digit 3">
+          <input class="code-input" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Digit 4">
+        </div>
+        <button class="primary big" id="unlockBtn">Open the surprise ✨</button>
+        <p class="unlock-hint">Psst... the secret code has 4 digits.</p>
+        <p class="password-feedback" id="passwordFeedback" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="scene loading-scene" id="scene-1">
+      <div class="sparkles"></div>
+      <div class="loading-card cardish">
+        <div class="loading-ring"></div>
+        <p class="loading-topline loading-write" data-text="A little birthday magic is waking up…"></p>
+        <div class="loading-lines">
+          <p class="loading-write" data-text="Someone special has arrived..."></p>
+          <p class="loading-write" data-text="Loading memories..."></p>
+          <p class="loading-write" data-text="Collecting smiles..."></p>
+          <p class="loading-write" data-text="Preparing surprises..."></p>
+        </div>
+        <h2 class="loading-big loading-write" data-text="Your surprise is almost here ♡"></h2>
+        <span class="loading-cursor" aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <section class="scene intro" id="scene-2">
+      <div class="sparkles"></div>
+      <div class="celebration-bg" id="celebrationIntro" aria-hidden="true"></div>
+      <div class="intro-shell cardish">
+        <div class="hero-panel">
+          <div class="hero-frame">
+            <img src="assets/hero_yellow_stairs.jpeg" alt="Birthday hero image">
+          </div>
+        </div>
+        <div class="intro-copy">
+          <h1>A little surprise <span>for someone as sweet as you</span></h1>
+          <div class="gift-wrap">
+            <button class="gift" id="giftBox" aria-label="Open the surprise">
+              <span class="lid"></span><span class="box"></span><span class="ribbon-v"></span><span class="ribbon-h"></span><span class="bow">♡</span>
+            </button>
+          </div>
+          <button class="primary big" id="openBtn">Open your surprise 🎁</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene confirm" id="scene-3">
+      <div class="celebration-bg" id="celebrationConfirm" aria-hidden="true"></div>
+      <div class="confirm-card cardish">
+        <p class="eyebrow">tiny warning</p>
+        <h2>Are you <em>sure</em> you want to see it?</h2>
+        <p class="subcopy">There may be an unreasonable amount of cuteness ahead.</p>
+        <div class="choices">
+          <button class="primary dodge" id="yesBtn">Yes, show me 🥺</button>
+          <button class="ghost" id="noBtn">No, let me escape 😌</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene poem-scene" id="scene-4">
+      <div class="poem-layout">
+        <div class="film-strip left" id="filmLeft"></div>
+        <div class="poem-paper cardish">
+          <div class="poem-heart" aria-hidden="true">♡</div>
+          <div class="poem-stage">
+            <div id="poemFull" class="poem-full"></div>
+          </div>
+          <button class="primary next-scene" data-go="5" id="toMemories">See the memories ✨</button>
+        </div>
+        <div class="film-strip right" id="filmRight"></div>
+      </div>
+    </section>
+
+    <section class="scene memory-scene" id="scene-5">
+      <div class="memory-shell cardish scrapbook-shell">
+        <div class="memory-header compact">
+          <p class="eyebrow">memory board 1</p>
+          <h2 id="memoryTitle1"></h2>
+          <p class="subcopy" id="memorySub1"></p>
+        </div>
+        <div class="scrapbook-board" id="scrapbook1"></div>
+        <div class="scene-nav memory-nav">
+          <button class="ghost" data-go="4">← Back to poem</button>
+          <button class="primary" data-go="6">More memories →</button>
+        </div>
+      </div>
+    </section>
+    <section class="scene memory-scene alt" id="scene-6">
+      <div class="memory-shell cardish scrapbook-shell">
+        <div class="memory-header compact">
+          <p class="eyebrow">memory board 2</p>
+          <h2 id="memoryTitle2"></h2>
+          <p class="subcopy" id="memorySub2"></p>
+        </div>
+        <div class="scrapbook-board" id="scrapbook2"></div>
+        <div class="scene-nav memory-nav">
+          <button class="ghost" data-go="5">← Previous board</button>
+          <button class="primary" data-go="7">Even more →</button>
+        </div>
+      </div>
+    </section>
+    <section class="scene memory-scene bonus" id="scene-7">
+      <div class="memory-shell cardish scrapbook-shell">
+        <div class="memory-header compact">
+          <p class="eyebrow">memory board 3</p>
+          <h2 id="memoryTitle3"></h2>
+          <p class="subcopy" id="memorySub3"></p>
+        </div>
+        <div class="scrapbook-board" id="scrapbook3"></div>
+        <div class="scene-nav memory-nav">
+          <button class="ghost" data-go="6">← Previous board</button>
+          <button class="primary" data-go="8">Even more →</button>
+        </div>
+      </div>
+    </section>
+    <section class="scene memory-scene alt" id="scene-8">
+      <div class="memory-shell cardish scrapbook-shell">
+        <div class="memory-header compact">
+          <p class="eyebrow">memory board 4</p>
+          <h2 id="memoryTitle4"></h2>
+          <p class="subcopy" id="memorySub4"></p>
+        </div>
+        <div class="scrapbook-board" id="scrapbook4"></div>
+        <div class="scene-nav memory-nav">
+          <button class="ghost" data-go="7">← Previous board</button>
+          <button class="primary" data-go="9">Even more →</button>
+        </div>
+      </div>
+    </section>
+    <section class="scene memory-scene bonus" id="scene-9">
+      <div class="memory-shell cardish scrapbook-shell">
+        <div class="memory-header compact">
+          <p class="eyebrow">memory board 5</p>
+          <h2 id="memoryTitle5"></h2>
+          <p class="subcopy" id="memorySub5"></p>
+        </div>
+        <div class="scrapbook-board" id="scrapbook5"></div>
+        <div class="scene-nav memory-nav">
+          <button class="ghost" data-go="8">← Previous board</button>
+          <button class="primary" data-go="10">One last little thing 💌</button>
+        </div>
+      </div>
+    </section>
+    <section class="scene finale" id="scene-10">
+      <div class="final-shell cardish">
+        <div class="envelope-wrap">
+          <div class="envelope" id="envelope">
+            <div class="back"></div>
+            <div class="letter">
+              <span class="eyebrow tiny">one last thing ♡</span>
+              <h2>Open me 💌</h2>
+              <p>There is one last little note for you.</p>
+              <b>✨</b>
+            </div>
+            <div class="front"></div>
+            <div class="flap"></div>
+          </div>
+          <p class="tiny-note">tap the envelope</p>
+        </div>
+        <div class="final-message" id="finalMessage">
+          <div class="final-paper">
+            <div class="final-letter-content">
+              <button class="final-heart" id="finalHeart" type="button" aria-label="More birthday confetti" title="More confetti">♥️</button>
+              <p class="final-note write-line" data-text="Hope you liked this effort for making your day special ♥️"></p>
+              <p class="final-note write-line" data-text="Just remember you are never alone , and will always be cherished and loved till eternity."></p>
+              <p class="final-note write-line" data-text="Life is like a sine wave but I wish your sin theta always = 1 if its not you know the number to call🥺."></p>
+              <p class="final-note write-line" data-text="This week entails double celebration 🎉 🎉 yayyy so so happy for youuu hope Shaww treats you well if not don't worry shah always will from now I promise 🥺."></p>
+              <p class="final-signoff write-line" data-text="Happpiest Birthday my cutiepie"></p>
+              <span class="writing-cursor" aria-hidden="true"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <audio id="photographMusic" src="assets/photograph.mp3" preload="auto"></audio>
+  <canvas id="confetti"></canvas>
+  <script>window.SITE_DATA={"hero": "hero_yellow_stairs.jpeg", "poemStrips": {"left": ["child_first.jpg", "cute_overload.jpg", "cute_model.jpg", "reading.jpg", "shave.jpg", "blanket.jpeg", "bed_smile.jpeg", "brown_shirt_solo.jpeg", "elephant.jpeg", "hero_yellow_stairs.jpeg"], "right": ["blue_toy.jpeg", "gift_pose.jpeg", "city_selfie_1.jpeg", "yellow_red_1.jpeg", "atrium_selfie.jpeg", "restaurant_selfie.jpeg", "mirror_room_1.jpeg", "elevator.jpeg", "hug.jpg", "shopping_mirror.jpeg"]}, "memoryPages": [{"title": "You, in all your cutest forms", "subtitle": "the tiny, funny, sincere versions of you ✨", "photos": [{"src": "child_first.jpg", "caption": "The very first star of the show ✨"}, {"src": "cute_overload.jpg", "caption": "cuteness overloaded"}, {"src": "cute_model.jpg", "caption": "my cute little model"}, {"src": "reading.jpg", "caption": "Ohh so sincere"}, {"src": "shave.jpg", "caption": "Love when you shave"}, {"src": "blanket.jpeg", "caption": "Blanket burrito energy 🤭"}]}, {"title": "A few more versions of you", "subtitle": "because one page of your expressions was definitely not enough", "photos": [{"src": "hero_yellow_stairs.jpeg", "caption": "Main character moment"}, {"src": "elephant.jpeg", "caption": "Soft smile, 10/10"}, {"src": "brown_shirt_solo.jpeg", "caption": "pats trying mirror selfies"}, {"src": "bed_smile.jpeg", "caption": "That smile again 😌"}, {"src": "blue_toy.jpeg", "caption": "Cuties together"}, {"src": "gift_pose.jpeg", "caption": "Still smiling at this one"}]}, {"title": "Little moments that became us", "subtitle": "the photos that somehow became my favourite memories ♡", "photos": [{"src": "yellow_red_1.jpeg", "caption": "One of my favourite smiles"}, {"src": "atrium_selfie.jpeg", "caption": "Sunshine selfie vibes"}, {"src": "mirror_room_2.jpeg", "caption": "Another little us moment ♡"}, {"src": "elevator.jpeg", "caption": "Lift selfie, soft little moment ♡"}, {"src": "hug.jpg", "caption": "The calm and warmth in your hug ❤️"}, {"src": "shopping_mirror.jpeg", "caption": "Shopping date documented"}]}, {"title": "The random memories are the best ones", "subtitle": "a little chaos, a lot of smiles", "photos": [{"src": "fireplace.jpeg", "caption": "Cute chaos together"}, {"src": "dance_mirror.jpeg", "caption": "Fun mode: activated"}, {"src": "city_selfie_1.jpeg", "caption": "Night view + us = perfect"}, {"src": "city_selfie_2.jpeg", "caption": "Another one because why not"}, {"src": "night_selfie_1.jpeg", "caption": "Streetlight cuties"}, {"src": "night_selfie_2.jpeg", "caption": "This smile deserves its own page"}]}, {"title": "And a few more, because obviously…", "subtitle": "a few photos were never going to be enough", "photos": [{"src": "night_selfie_3.jpeg", "caption": "Just us being adorable"}, {"src": "night_goofy.jpeg", "caption": "Certified goofball energy"}, {"src": "night_selfie_4.jpeg", "caption": "One more for the memories"}, {"src": "date_night.jpeg", "caption": "Date night glow"}, {"src": "yellow_red_2.jpeg", "caption": "Too cute not to include"}, {"src": "elevator.jpeg", "caption": "One of those warm little moments ❤️"}]}], "bonusRibbon": ["vcall_funny.jpeg", "vcall_screen.jpeg", "family.jpeg", "cute_closeup.jpeg", "mirror_room_2.jpeg", "mirror_room_3.jpeg"]};</script>
+  <script src="script.js"></script>
+</body>
+</html>
